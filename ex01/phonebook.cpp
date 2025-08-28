@@ -6,7 +6,7 @@
 /*   By: furizalex <furizalex@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/19 12:34:10 by furizalex         #+#    #+#             */
-/*   Updated: 2025/08/28 16:57:19 by furizalex        ###   ########.fr       */
+/*   Updated: 2025/08/28 17:18:30 by furizalex        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,23 @@ void	PhoneBook::addDisplayContents(int Index) {
 	std::cout << YELLOW << "Darkest Secret :" << BLUE << contacts[Index].getDarkestSecret << std::endl;
 }
 
+void	PhoneBook::contactInfo(std::string& Info[5]) {
+	std::string Prompts[] = {
+		"First Name :",
+		"Last Name :",
+		"Nickname :",
+		"Phone Number :",
+		"Darkest Secret :",
+	}
+	for (int Index = 0; Index < 5)
+}
+
 bool	PhoneBook::invalidContacts(std::string& Information)
 {
 	if (Information.empty())
 		return true;
-	for (int i = 0; Information.length() > i; i++;) {
-		if (Information[i] != ' ' && Information[i] != '\t')
+	for (int index = 0; Information.length() > index; index++;) {
+		if (Information[index] != ' ' && Information[index] != '\t')
 			return false;
 	}
 	return true;
@@ -47,12 +58,12 @@ bool	PhoneBook::invalidContacts(std::string& Information)
 
 void	PhoneBook::addContact() {
 	Contact maxContacts;
-	std::string Info[4];
+	std::string Info[5];
 	
 	
 }
 
-Contact	PhoneBook::addInfo(std::string& Info[4]) {
+Contact	PhoneBook::addInfo(std::string& Info[5]) {
 	Contact newContact;
 
 	newContact.setFirstName(Info[0]);
