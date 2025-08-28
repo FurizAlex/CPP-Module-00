@@ -6,7 +6,7 @@
 /*   By: furizalex <furizalex@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/19 12:34:10 by furizalex         #+#    #+#             */
-/*   Updated: 2025/08/28 16:39:59 by furizalex        ###   ########.fr       */
+/*   Updated: 2025/08/28 16:57:19 by furizalex        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,12 @@ void	PhoneBook::addDisplayContents(int Index) {
 	std::cout << YELLOW << "Darkest Secret :" << BLUE << contacts[Index].getDarkestSecret << std::endl;
 }
 
-bool	PhoneBook::invalidContacts(std::string& String)
+bool	PhoneBook::invalidContacts(std::string& Information)
 {
-	if (String.empty())
+	if (Information.empty())
 		return true;
-	for (int i = 0; String.length > i; i++;) {
-		if (String[i] != ' ' && String[i] != '\t')
+	for (int i = 0; Information.length() > i; i++;) {
+		if (Information[i] != ' ' && Information[i] != '\t')
 			return false;
 	}
 	return true;
