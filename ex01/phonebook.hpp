@@ -6,7 +6,7 @@
 /*   By: furizalex <furizalex@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/19 12:34:04 by furizalex         #+#    #+#             */
-/*   Updated: 2025/08/28 16:06:01 by furizalex        ###   ########.fr       */
+/*   Updated: 2025/09/02 14:33:25 by furizalex        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,13 @@ class PhoneBook {
 		int		i;
 	public:
 		PhoneBook();
+		void	handleErrors(int type);
+		void	welcomeMessage();
+		void	addDisplayContents(int Index);
+		void	getContactInfo(std::string& Info[5]);
+		void	addContact();
+		bool	invalidContacts(std::string& Information);
+		Contact	addInfo(std::string& Info[5]);
 };
 
 #endif

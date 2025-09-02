@@ -6,7 +6,7 @@
 /*   By: furizalex <furizalex@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/19 12:34:10 by furizalex         #+#    #+#             */
-/*   Updated: 2025/08/28 17:18:30 by furizalex        ###   ########.fr       */
+/*   Updated: 2025/09/02 14:28:02 by furizalex        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,21 @@ PhoneBook::PhoneBook() {
 	this->i = 0;
 	this->contacts = 0;
 	this->numberOfContacts = 0;
+}
+
+void	PhoneBook::handleErrors(int type) {
+	switch (type) {
+		case 0:
+			std::cout << RED << "\nEnd of file detected, Exiting Program" << RESET << std::endl;
+			std::cin.clear();
+			std::exit(0);
+		case 1:
+			std::cout << RED << "\nEmpty Value" << RESET << std::endl
+		case 2:
+			std::cout << RED << "\nInvalid Response" << RESET << std::endl
+		default:
+			return;
+	}
 }
 
 void	PhoneBook::welcomeMessage() {
@@ -34,7 +49,7 @@ void	PhoneBook::addDisplayContents(int Index) {
 	std::cout << YELLOW << "Darkest Secret :" << BLUE << contacts[Index].getDarkestSecret << std::endl;
 }
 
-void	PhoneBook::contactInfo(std::string& Info[5]) {
+void	PhoneBook::getContactInfo(std::string& Info[5]) {
 	std::string Prompts[] = {
 		"First Name :",
 		"Last Name :",
@@ -42,7 +57,14 @@ void	PhoneBook::contactInfo(std::string& Info[5]) {
 		"Phone Number :",
 		"Darkest Secret :",
 	}
-	for (int Index = 0; Index < 5)
+	for (int Index = 0; Index < 5; Index++; ) {
+		std::cout << BLUE << Prompts[Index] << RESET;
+		if (!std::getline(std::cin, Info[Index]))
+			handleErrors(0);
+		else if (invalidContacts(Info[Index]))
+			handleErrors(2);
+			Index--;
+	}
 }
 
 bool	PhoneBook::invalidContacts(std::string& Information)
@@ -57,10 +79,12 @@ bool	PhoneBook::invalidContacts(std::string& Information)
 }
 
 void	PhoneBook::addContact() {
-	Contact maxContacts;
+	Contact newContact;
 	std::string Info[5];
 	
-	
+	getContactInfo(Info);
+	newContact = addInfo(Info);
+
 }
 
 Contact	PhoneBook::addInfo(std::string& Info[5]) {
