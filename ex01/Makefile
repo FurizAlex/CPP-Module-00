@@ -6,17 +6,25 @@
 #    By: furizalex <furizalex@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/19 12:33:02 by furizalex         #+#    #+#              #
-#    Updated: 2025/09/02 13:17:19 by furizalex        ###   ########.fr        #
+#    Updated: 2025/09/02 15:54:28 by furizalex        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = phonebook
 CXX = g++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g3 $(FSAN)
 FSAN = -fsanitize=address
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g3 $(FSAN)
 RM = rm -rf
 
-SOURCE = phonebook.cpp \
+SOURCE = \
+	main.cpp		\
+	print.cpp		\
+	contact.cpp		\
+	phonebook.cpp	\
+
+HEADER = \
+	contact.hpp		\
+	phonebook.hpp	\
 
 OBJECT = $(SOURCE:.cpp=.o)
 
@@ -29,21 +37,21 @@ CYAN := \033[1;36m
 all: $(NAME)
 
 $(NAME): $(OBJECT)
-	@echo "\n$(YELLOW)Compiling the megaphone cronk!.." $(RESET)
+	@printf "\n$(YELLOW)Compiling phonebook...$(RESET)\n"
 	@$(CXX) $(CXXFLAGS) $(OBJECT) -o $(NAME)
-	@echo "\n$(GREEN)Successfully compiled the megaphone" $(RESET)
+	@printf "\n$(GREEN)Successfully compiled phonebook!$(RESET)\n"
 
-%.o: %.cpp
+%.o: %.cpp $(HEADER)
 	@$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
-	@echo "\n$(CYAN)Cleaning up files..." $(RESET)
+	@printf "\n$(CYAN)Cleaning object files...$(RESET)\n"
 	@$(RM) $(OBJECT)
 
 fclean: clean
-	@echo "\n$(GREEN)Removing files..." $(RESET)
+	@printf "\n$(GREEN)Removing binary...$(RESET)\n"
 	@$(RM) $(NAME)
 
 re: fclean all
 
-PHONEY: all clean fclean re
+.PHONY: all clean fclean re
