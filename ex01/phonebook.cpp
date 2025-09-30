@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   phonebook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: furizalex <furizalex@student.42.fr>        +#+  +:+       +#+        */
+/*   By: alechin <alechin@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/19 12:34:10 by furizalex         #+#    #+#             */
-/*   Updated: 2025/09/03 14:18:35 by furizalex        ###   ########.fr       */
+/*   Updated: 2025/09/30 11:17:35 by alechin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	PhoneBook::handleErrors(int type) {
 void	PhoneBook::welcomeMessage() {
 	std::cout << GREEN << '\n';
 	std::cout << WHITE << "Welcome to our crappy phonebook!!" << std::endl;
-	std::cout << WHITE << "In this phonebook, it only accepts" << BLUE << " ➕ ADD 🔍 SEARCH & 🚪 EXIT\n" << std::flush;
+	std::cout << WHITE << "In this phonebook, it only accepts" << BLUE << " ➕ (A)DD 🔍 (S)EARCH & 🚪 (E)XIT\n" << std::flush;
 	std::cout << WHITE << "Please enter a command" << RESET << '\n' << std::flush;
 	std::cout << BLUE << "--- Command ---" << RESET << '\n' << std::flush;
 }
@@ -89,7 +89,7 @@ void	PhoneBook::getContactInfo(std::string Info[5]) {
 }
 
 void	PhoneBook::promptContact() {
-	std::cout << GREEN << "Please enter the index you'd like to display" << RESET;
+	std::cout << GREEN << "Please enter the index you'd like to display" << RESET << std::endl;
 	if (!(std::cin >> i)) {
 		if (std::cin.eof())
 			handleErrors(0);
@@ -144,5 +144,5 @@ void	PhoneBook::searchContact()
 	}
 	printChart();
 	printContactTable();
-	printContacts(i);
+	promptContact();
 }
