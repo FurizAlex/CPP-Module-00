@@ -6,7 +6,7 @@
 /*   By: alechin <alechin@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 17:02:54 by alechin           #+#    #+#             */
-/*   Updated: 2025/09/30 10:29:36 by alechin          ###   ########.fr       */
+/*   Updated: 2025/09/30 14:50:23 by alechin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,10 +61,10 @@ int Account::checkAmount(void) const {
 
 void Account::displayAccountsInfos( void ) {
 	_displayTimestamp();
-	std::cout << " accounts " << _nbAccounts;
+	std::cout << " accounts:" << _nbAccounts;
 	std::cout << ";total:" << _totalAmount;
 	std::cout << ";deposits:" << _totalNbDeposits;
-	std::cout << ";withdrawals" << _totalNbWithdrawals;
+	std::cout << ";withdrawals:" << _totalNbWithdrawals;
 	std::cout << std::endl;
 }
 
@@ -105,10 +105,10 @@ bool Account::makeWithdrawal( int withdrawal ) {
 
 void Account::displayStatus( void ) const {
 	_displayTimestamp();
-	std::cout << " accounts " << _accountIndex;
-	std::cout << ";total:" << _amount;
+	std::cout << " index:" << _accountIndex;
+	std::cout << ";amount:" << _amount;
 	std::cout << ";deposits:" << _nbDeposits;
-	std::cout << ";withdrawals" << _nbWithdrawals;
+	std::cout << ";withdrawals:" << _nbWithdrawals;
 	std::cout << std::endl;
 }
 

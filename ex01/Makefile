@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: furizalex <furizalex@student.42.fr>        +#+  +:+       +#+         #
+#    By: alechin <alechin@student.42kl.edu.my>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/19 12:33:02 by furizalex         #+#    #+#              #
-#    Updated: 2025/09/02 15:54:28 by furizalex        ###   ########.fr        #
+#    Updated: 2025/09/30 14:54:24 by alechin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,12 +19,12 @@ RM = rm -rf
 SOURCE = \
 	main.cpp		\
 	print.cpp		\
-	contact.cpp		\
-	phonebook.cpp	\
+	Contact.cpp		\
+	Phonebook.cpp	\
 
 HEADER = \
-	contact.hpp		\
-	phonebook.hpp	\
+	Contact.hpp		\
+	Phonebook.hpp	\
 
 OBJECT = $(SOURCE:.cpp=.o)
 

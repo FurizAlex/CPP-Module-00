@@ -6,7 +6,7 @@
 #    By: alechin <alechin@student.42kl.edu.my>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/29 16:59:50 by alechin           #+#    #+#              #
-#    Updated: 2025/09/30 10:29:45 by alechin          ###   ########.fr        #
+#    Updated: 2025/09/30 14:45:46 by alechin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,9 +34,9 @@ CYAN := \033[1;36m
 all: $(NAME)
 
 $(NAME): $(OBJECT)
-	@printf "\n$(YELLOW)Compiling phonebook...$(RESET)\n"
+	@printf "\n$(YELLOW)Compiling mini bank system...$(RESET)\n"
 	@$(CXX) $(CXXFLAGS) $(OBJECT) -o $(NAME)
-	@printf "\n$(GREEN)Successfully compiled phonebook!$(RESET)\n"
+	@printf "\n$(GREEN)Successfully compiled mini bank system!$(RESET)\n"
 
 %.o: %.cpp $(HEADER)
 	@$(CXX) $(CXXFLAGS) -c $< -o $@

@@ -1,21 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.cpp                                      :+:      :+:    :+:   */
+/*   Phonebook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alechin <alechin@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/19 12:34:10 by furizalex         #+#    #+#             */
-/*   Updated: 2025/09/30 11:17:35 by alechin          ###   ########.fr       */
+/*   Updated: 2025/09/30 15:08:15 by alechin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "phonebook.hpp"
+#include "Phonebook.hpp"
 
 PhoneBook::PhoneBook() {
 	this->i = 0;
 	this->maxContacts = 0;
-	this->numberOfContacts = 0;
 }
 
 void PhoneBook::determineRange() {
@@ -23,6 +22,11 @@ void PhoneBook::determineRange() {
 		printContacts(i);
 	else
 		handleErrors(4);
+}
+
+void	PhoneBook::handleIntMaxEdgeCase() {
+	if (i > 7)
+		i = 0;
 }
 
 void	PhoneBook::handleErrors(int type) {
@@ -118,9 +122,7 @@ void	PhoneBook::addContact() {
 	
 	getContactInfo(Info);
 	newContact = addInfo(Info);
-	i = numberOfContacts % 8;
 	this->contacts[i] = newContact;
-	numberOfContacts++;
 	if (maxContacts < 8)
 		maxContacts++;
 }
@@ -138,7 +140,7 @@ Contact	PhoneBook::addInfo(std::string Info[5]) {
 
 void	PhoneBook::searchContact()
 {
-	if (numberOfContacts == 0) {
+	if (maxContacts == 0) {
 		handleErrors(5);
 		return;
 	}
