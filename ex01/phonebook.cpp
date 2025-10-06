@@ -6,7 +6,7 @@
 /*   By: alechin <alechin@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/19 12:34:10 by furizalex         #+#    #+#             */
-/*   Updated: 2025/09/30 15:08:15 by alechin          ###   ########.fr       */
+/*   Updated: 2025/10/06 12:11:53 by alechin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 PhoneBook::PhoneBook() {
 	this->i = 0;
 	this->maxContacts = 0;
+	this->numberOfContacts = 0;
 }
 
 void PhoneBook::determineRange() {
@@ -122,7 +123,9 @@ void	PhoneBook::addContact() {
 	
 	getContactInfo(Info);
 	newContact = addInfo(Info);
+	i = numberOfContacts % 8;
 	this->contacts[i] = newContact;
+	numberOfContacts++;
 	if (maxContacts < 8)
 		maxContacts++;
 }

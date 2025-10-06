@@ -6,7 +6,7 @@
 /*   By: alechin <alechin@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/19 12:34:04 by furizalex         #+#    #+#             */
-/*   Updated: 2025/09/30 15:04:16 by alechin          ###   ########.fr       */
+/*   Updated: 2025/10/06 12:11:09 by alechin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ class PhoneBook {
 	private:
 		Contact contacts[8];
 		int		maxContacts;
+		int		numberOfContacts;
 		int		i;
 	public:
 		PhoneBook();
